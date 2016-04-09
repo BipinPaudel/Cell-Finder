@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SecurePhone</string>
+
+
+    <string name="authenticate_text_message">Enter pin. Default:8888</string>
+    <string name="authenticate_button">OK </string>
+
+    <string name="title_activity_main_page">MainPage</string>
+    <string name="edit_info_button_main_page">Edit info</string>
+
+    <string name="title_activity_add_info_page">AddInfoPage</string>
+    <string name="add_name">Name:</string>
+    <string name="add_number">Number to Send message: </string>
+    <string name="add_email">Email to send message</string>
+    <string name="okButton">OK</string>
+    <string name="title_activity_splash">Splash</string>
+</resources>
