@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,9 +9,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.bipin.securephone.AddInfoPage"
+    tools:context="com.bipin.trace.AddInfoPage"
     tools:showIn="@layout/activity_add_info_page">
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,9 +27,35 @@
         android:id="@+id/id_edittext_add_name"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/id_edittext_add_name"
+        android:text="Your gmail id"
+        android:id="@+id/id_your_email"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_your_email"
+        android:id="@+id/id_edittext_your_email"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_edittext_your_email"
+        android:id="@+id/id_your_email_password"
+        android:text="Password"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_edittext_email_password"
+        android:layout_below="@id/id_your_email_password"
+        android:inputType="textPassword"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_edittext_email_password"
         android:id="@+id/id_add_number"
         android:text="@string/add_number"/>
 
@@ -60,7 +88,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/id_edittext_add_email"
+        android:layout_below="@id/id_add_pin"
         android:id="@+id/id_edittext_add_pin"
         android:inputType="number"
         />
@@ -71,5 +99,5 @@
         android:id="@+id/id_add_info_button"
         android:layout_below="@id/id_edittext_add_pin"/>
 
-
 </RelativeLayout>
+</ScrollView>

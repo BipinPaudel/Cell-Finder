@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">SecurePhone</string>
+    <string name="app_name">Trace</string>
 
 
-    <string name="authenticate_text_message">Enter pin. Default:8888</string>
+    <string name="authenticate_text_message">Enter Pin</string>
     <string name="authenticate_button">OK </string>
 
     <string name="title_activity_main_page">MainPage</string>
@@ -14,4 +14,10 @@
     <string name="add_email">Email to send message</string>
     <string name="okButton">OK</string>
     <string name="title_activity_splash">Splash</string>
+    <string name="forgot_pin">Forgot Pin?</string>
+    <string name="title_activity_email_authenticate">EmailAuthenticate</string>
+    <string name="enter_email_authentication">Email id</string>
+    <string name="password_text">Password</string>
+    <string name="email_authenticate_title">Enter your stored email id and password</string>
+    <string name="main_page_title">Your Info</string>
 </resources>
