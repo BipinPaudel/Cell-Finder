@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.bipin.trace.javaclass.GMailSender;
 import com.bipin.trace.javaclass.GPSTracker;
+import com.bipin.trace.javaclass.MyService;
 
 import java.util.Properties;
 
@@ -40,21 +41,14 @@ public class Splash extends AppCompatActivity {
         currentSerial=tm.getSimSerialNumber();
 
 //
-
+        Intent test=new Intent(Splash.this, MyService.class);
+        //Splash.this.startService(test);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
               sharedPreferences = getSharedPreferences(MyPreferences, MODE_PRIVATE);
-                //new GmailAsync().execute();
-//                try {
-//                    GMailSender sender=new GMailSender("paudelbipin.bp@gmail.com","deerwalkinternational");
-//                    sender.sendMail("subject","body",
-//                            "paudelbipin.bp@gmail.com",
-//                            "bipin.paudel@deerwalk.edu.np");
-//                }  catch (Exception e) {
-//                    e.printStackTrace();
-//                }
+
                 String name = sharedPreferences.getString("name", null);//gets name of user if exists
                 String number = sharedPreferences.getString("number", null);//get number to send message if exists
                 String email = sharedPreferences.getString("email", null);//gets email to send message if exists

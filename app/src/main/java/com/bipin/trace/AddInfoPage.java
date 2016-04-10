@@ -49,9 +49,7 @@ public class AddInfoPage extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
         Intent intent = getIntent();
         addOrEditValue = intent.getIntExtra("editValue", 0);
-        Toast.makeText(AddInfoPage.this, "edit bho " + addOrEditValue, Toast.LENGTH_SHORT).show();
 
-//
         if (addOrEditValue == 0) {
             addInfo();
         } else if (addOrEditValue == 1) {
@@ -135,7 +133,7 @@ public class AddInfoPage extends AppCompatActivity {
     //stored information will be retrieved and shown in edittext
     // and then they will be replaced
     public void editInfo() {
-        Toast.makeText(AddInfoPage.this, "From edit", Toast.LENGTH_SHORT).show();
+
         //edittext is filled with retrieved information from sharedpreferences
         enteredName.setText(sharedPreferences.getString("name", "none"));
         sendingEmail.setText(sharedPreferences.getString("sendingEmail", "none"));
@@ -176,7 +174,7 @@ public class AddInfoPage extends AppCompatActivity {
                         editor.putString("email", receivingEmailText);
                         editor.putString("pin", pinText);
                         editor.commit();
-                        Toast.makeText(AddInfoPage.this, "Added info", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddInfoPage.this, "Information Added", Toast.LENGTH_SHORT).show();
 
                         enteredName.setText("");
                         sendingEmail.setText("");

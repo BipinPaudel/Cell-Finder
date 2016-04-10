@@ -1,6 +1,7 @@
 package com.bipin.trace;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,8 +10,10 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.media.audiofx.BassBoost;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +25,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bipin.trace.javaclass.GMailSender;
 import com.bipin.trace.javaclass.GPSTracker;
 
 import org.w3c.dom.Text;
@@ -33,9 +37,7 @@ public class MainPage extends AppCompatActivity {
     public static final String MyPreferences = "secure";
 
 
-    private LocationManager locationManager;
-    private LocationListener locationListener;
-    Button gpsButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class MainPage extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        gpsButton = (Button) findViewById(R.id.gpsButton);
+
 
 
         editButton = (Button) findViewById(R.id.id_main_edit_info);
@@ -63,6 +65,13 @@ public class MainPage extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
 
         displayInfo();//retrieves stored information from sharedpreferences and displays in this activity
+        //email work
+
+
+
+        //email work
+
+
         /// for gps
         //Button gpsButton = (Button) findViewById(R.id.gpsButton);
 //        configureButton();
@@ -108,7 +117,10 @@ public class MainPage extends AppCompatActivity {
         ///for gps
 
 
+        //email word
 
+
+//w
 
     }
 

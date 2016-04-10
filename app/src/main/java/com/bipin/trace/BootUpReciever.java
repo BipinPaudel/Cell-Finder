@@ -14,6 +14,7 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.bipin.trace.javaclass.GMailSender;
+import com.bipin.trace.javaclass.MyService;
 
 import java.util.Properties;
 
@@ -46,9 +48,9 @@ import static android.support.v4.content.PermissionChecker.checkSelfPermission;
  * Created by bips on 4/9/16.
  */
 public class BootUpReciever extends BroadcastReceiver {
-    Session session=null;
-    ProgressDialog pdialog=null;
 
+
+    GMailSender sender;
 
 
     Context context=null;
@@ -74,144 +76,57 @@ public class BootUpReciever extends BroadcastReceiver {
         email = sharedPreferences.getString("email", null);
         //email work
 
-        Properties props=new Properties();
-        props.put("mail.smtp.host","smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port","465");
-        props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.auth","true");
-        props.put("mail.smtp.port","465");
 
 
-        session=Session.getDefaultInstance(props, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("paudelbipin.bp@gmail.com", "deerwalkinternational");
-            }
-        });
 
-        pdialog= ProgressDialog.show(context, "", "Sending Mail ....", true);
-        RetrieveFeedTask task=new RetrieveFeedTask();
 
         //email work end
+        //if(tm.getSimSerialNumber().toString().isEmpty()) return;
         if(tm.getSimSerialNumber().toString().equals(storedSimSerial.toString())){
             try{
                 Thread.sleep(60000);
             } catch(InterruptedException ex){
                 Thread.currentThread().interrupt();
             }
-            //task.execute();
             Toast.makeText(context, "same", Toast.LENGTH_SHORT).show();
-        }else
+
+
+
+        }
+
+        else
         {
+            Log.d("Inside different", "::" + "");
+
+            Log.d("Thread completed","");
             try{
-                Thread.sleep(60000);
+                Log.d("above that","");
+                Intent intent1=new Intent(context, MyService.class);
+                context.startService(intent1);
+            }
+            catch (Exception ex){
+                Toast.makeText(context, ex.toString(), Toast.LENGTH_SHORT).show();
+            }
+            try{
+                Thread.sleep(50000);
             } catch(InterruptedException ex){
                 Thread.currentThread().interrupt();
             }
-            //task.execute();
-            Toast.makeText(context, "different", Toast.LENGTH_SHORT).show();
-            //new GmailAsync().execute("");
             String sms = "Sim card has changed," +
                     "Sim Serial Number of this card is: "+currentSimSerial+
                     " Network Operator: "+tm.getNetworkOperatorName();
-//            try{
-//
-//                //SmsManager smsManager=SmsManager.getDefault();
-//                try{
-//                    Thread.sleep(60000);
-//                } catch(InterruptedException ex){
-//                    Thread.currentThread().interrupt();
-//                }
-////                smsManager.sendTextMessage(phoneNumbertoSend, null, sms, null, null);
-//
-////                new GmailAsync().execute("");
-////                GMailSender sender=new GMailSender("bipin.paudel@deerwalk.edu.np","*deerwalk*");
-////                sender.sendMail("this is subject",
-////                        "this is body",
-////                        "bipin.paudel@deerwalk.edu.np",
-////                        "paudelbipin.bp@gmail.com");
-////
-////                Log.i("Sms sent","");
-//            }
-//            catch(Exception e){
-//                e.printStackTrace();
-//                Log.i("Sending failed","");
-//            }
+            //SmsManager smsManager=SmsManager.getDefault();
+            //smsManager.sendTextMessage(phoneNumbertoSend, null, sms, null, null);
+
+
 
 
         }
 
-//        Intent sms = new Intent(context, .class);
-//        sms.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        context.startActivity(sms);
-
-//        Intent netAvailability = new Intent(context, CheckingNetworkAvailability.class);
-//        netAvailability.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        context.startActivity(netAvailability);
-        try{
-                    Thread.sleep(60000);
-                } catch(InterruptedException ex){
-                    Thread.currentThread().interrupt();
-                }
-
     }
 
 
-class RetrieveFeedTask extends AsyncTask<String,Void,String>{
-    @Override
-    protected String doInBackground(String... params) {
-        try{
-            Message message=new MimeMessage(session);
 
-            message.setFrom(new InternetAddress("paudelbipin.bp@gmail.com"));
-
-            //message.setRecipient(Message.RecipientType.TO, InternetAddress.parse("paudelbipin@yahoo.com"));
-            message.setSubject("this is subject");
-            message.setContent("this is content hai","text/html; charset=utf-8");
-
-        }catch (MessagingException e){
-            e.printStackTrace();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    protected void onPostExecute(String s) {
-        pdialog.dismiss();
-        Toast.makeText(context,"message sent",Toast.LENGTH_SHORT).show();
-    }
-}
-
-
-
-//
-//    public class GmailAsync extends AsyncTask<String, Void, String> {
-//
-//        @Override
-//        protected String doInBackground(String... params) {
-//
-//            String mail_body = "Sim serial number is "+currentSimSerial;
-//            String subject = "Your Sim has changed!!!";
-//            GMailSender sender = new GMailSender("paudelbipin.bp@gmail.com", "deerwalkinternational");
-//            try {
-//                sender.sendMail("this is subject",
-//                        "this is body",
-//                        "paudelbipin.bp@gmail.com",
-//                        "bipin.paudel@deerwalk.edu.np");
-//            } catch (Exception e) {
-//                Log.e("SendMail", e.getMessage(), e);
-//            }
-//            return null;
-//        }
-//        @Override
-//        protected void onPostExecute(String result) {
-//            //
-//            super.onPostExecute(result);
-//            Log.d("Mail", "Sent");
-//        }
-//    }
 
 
 

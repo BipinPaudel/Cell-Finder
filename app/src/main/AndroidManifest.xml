@@ -36,7 +36,7 @@
             android:name=".Authenticate"
             android:label="Authenticate"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <service android:name=".javaclass.MyService"/>
         <receiver android:name=".BootUpReciever">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
