@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.bipin.trace.Authenticate"
-    tools:showIn="@layout/activity_authenticate"
+    tools:context="com.samir.trace.Authenticate"
+    tools:showIn="@layout/activity_authenticate">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="@dimen/padding_left"
     android:paddingRight="@dimen/padding_right">
@@ -49,4 +55,11 @@
         android:id="@+id/forgot_pin_button"/>
     </LinearLayout>
 </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Submitted By: Samir Babu Gharti\n          LMU Id:11069886"
+        android:layout_marginTop="100dp"/>
 </LinearLayout>
+</ScrollView>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bipin.trace">
+    package="com.samir.trace">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -8,14 +8,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash">
+        <activity android:name="com.samir.trace.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,28 +25,31 @@
 
         </activity>
         <activity
-            android:name=".MainPage"
+            android:name="com.samir.trace.MainPage"
             android:label="@string/title_activity_main_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AddInfoPage"
+            android:name="com.samir.trace.AddInfoPage"
             android:label="@string/title_activity_add_info_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Authenticate"
+            android:name="com.samir.trace.Authenticate"
             android:label="Authenticate"
             android:theme="@style/AppTheme.NoActionBar" />
-        <service android:name=".javaclass.MyService"/>
-        <receiver android:name=".BootUpReciever">
+        <service android:name="com.samir.trace.javaclass.MyService"/>
+        <service android:name="com.samir.trace.javaclass.MessageService"/>
+        <receiver android:name="com.samir.trace.BootUpReciever">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
             </intent-filter>
         </receiver>
 
         <activity
-            android:name=".EmailAuthenticate"
+            android:name="com.samir.trace.EmailAuthenticate"
             android:label="@string/title_activity_email_authenticate"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
