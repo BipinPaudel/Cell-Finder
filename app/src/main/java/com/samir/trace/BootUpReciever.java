@@ -27,6 +27,9 @@ import com.samir.trace.javaclass.MyService;
  * Supervisor: Mr. Dhruba Sen
  */
 
+//this class is called broadcast receiver
+// It listens the action that happens in the background and executes this
+//We call message and email service from this broadcastreceiver
 public class BootUpReciever extends BroadcastReceiver {
 
 
@@ -37,14 +40,16 @@ public class BootUpReciever extends BroadcastReceiver {
 
     public static final String MyPreferences = "secure";
 
+    //this is the main function that is called when
+    //broadcastreceiver is active
     @Override
     public void onReceive(Context context, Intent intent) {
 
 
         ConnectivityManager connectivityManager = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
 
+        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
 
         sharedPreferences = context.getSharedPreferences(MyPreferences, 0);
         String storedSimSerial = sharedPreferences.getString("simSerial", null);
@@ -52,8 +57,6 @@ public class BootUpReciever extends BroadcastReceiver {
 
 
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        GsmCellLocation location = (GsmCellLocation) tm.getCellLocation();
-        String networkOperator = tm.getNetworkOperator();
         currentSimSerial = tm.getSimSerialNumber();
 
         email = sharedPreferences.getString("email", null);
@@ -61,24 +64,31 @@ public class BootUpReciever extends BroadcastReceiver {
         if (email == null) return;
         Log.d("Stored Sim Serial::", storedSimSerial);
         Log.d("Current Sim Serial", "::" + currentSimSerial);
-        Log.d("goo", "goo");
+        Log.d("goose", "goose");
+        //this checks if there is sim card or not.
+        // if there is no sim card function will return
         if (tm.getSimSerialNumber() == null) return;
 
-
+//this will check if previous stored sim serial is equal to current sim serial
+        //if it is equal, it does nothing and simply returns.
+        //else it will call message service and email service
         if (tm.getSimSerialNumber().toString().equals(storedSimSerial.toString())) {
             return;
         } else {
+            //checks if there is internet connection
             if (activeNetInfo != null) {
                 try {
                     Thread.sleep(10000);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 }
+                //this will check if the internet connection is through wifi or mobile data
                 if (activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI ||
                         activeNetInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
 
                     try {
                         Log.d("above that", "");
+                        //this intent will call emailservice called MyService class to send email
                         Intent intent1 = new Intent(context, MyService.class);
                         context.startService(intent1);
                     } catch (Exception ex) {
@@ -91,7 +101,7 @@ public class BootUpReciever extends BroadcastReceiver {
             Log.d("Inside different", "::" + "");
 
             Log.d("msg gayo", "gayo");
-
+//this intent helps in calling Messageservice class to send message
             Intent intent2 = new Intent(context, MessageService.class);
 
             intent2.putExtra("phoneNumber", phoneNumbertoSend);

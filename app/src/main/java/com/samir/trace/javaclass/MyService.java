@@ -81,7 +81,7 @@ public class MyService extends Service {
 
         Integer lac;
         Integer cid;
-String mcc;
+        String mcc;
         String mnc;
         if(location==null) stopSelf();
         lac = (location == null ? 0 : location.getLac());

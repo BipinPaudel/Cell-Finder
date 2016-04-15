@@ -18,9 +18,9 @@ import android.util.Log;
  * LMU ID: 11069886
  * Supervisor: Mr. Dhruba Sen
  */
+//This class helps in sending sms
 public class MessageService extends Service {
 
-    SmsManager smsManager;
     String currentSimSerial;
 
     @Nullable
@@ -35,7 +35,7 @@ public class MessageService extends Service {
 
 
     }
-
+//this function will be called from broadcastreceiver
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         try {
@@ -43,8 +43,10 @@ public class MessageService extends Service {
             } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
+        //TelephonyManager contains all the informtion to deal with sim card
         TelephonyManager tm = (TelephonyManager) getApplicationContext().
                 getSystemService(Context.TELEPHONY_SERVICE);
+        //this helps in getting sim location
         GsmCellLocation location = (GsmCellLocation) tm.getCellLocation();
         String networkOperator = tm.getNetworkOperator();
 
@@ -72,9 +74,10 @@ public class MessageService extends Service {
                 +" MCC:" + mcc + " MNC:" + mnc;
 
         SmsManager smsManager = SmsManager.getDefault();
+        //this function sends sms
         smsManager.sendTextMessage(phoneNumbertoSend, null, sms, sentPI, null);
-        Log.d("la hai", "lahai ");
-        stopSelf();
+        Log.d("ok", "sms send");
+        stopSelf();//onStartCommand is stopped after this function is executed.
         return START_STICKY;
 
 
