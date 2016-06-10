@@ -1,4 +1,4 @@
-package com.samir.trace;
+package com.bipin.cellfinder;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Handler;
 import android.util.Log;
-import android.widget.Toast;
 
 /**
  * Student’s Name: Samir Babu Gharti

@@ -1,20 +1,17 @@
-package com.samir.trace;
+package com.bipin.cellfinder;
 
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
-import android.telephony.gsm.GsmCellLocation;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.samir.trace.javaclass.MessageService;
-import com.samir.trace.javaclass.MyService;
+import com.bipin.cellfinder.javaclass.MessageService;
+import com.bipin.cellfinder.javaclass.MyService;
 
 //
 

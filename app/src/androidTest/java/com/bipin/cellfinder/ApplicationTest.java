@@ -1,4 +1,4 @@
-package com.bipin.trace;
+package com.bipin.cellfinder;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

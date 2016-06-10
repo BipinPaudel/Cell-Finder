@@ -1,11 +1,9 @@
-package com.bipin.trace;
+package com.bipin.cellfinder;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
@@ -45,6 +43,7 @@ public class AddInfoPage extends AppCompatActivity {
 
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         simSerialNumber = tm.getSimSerialNumber();
+
 
         sharedPreferences = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
         Intent intent = getIntent();
@@ -129,6 +128,7 @@ public class AddInfoPage extends AppCompatActivity {
 
 
     }
+
     //this function is called to edit information.
     //stored information will be retrieved and shown in edittext
     // and then they will be replaced

@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.samir.trace.Authenticate"
+    tools:context="com.bipin.cellfinder.Authenticate"
     tools:showIn="@layout/activity_authenticate">
 
 

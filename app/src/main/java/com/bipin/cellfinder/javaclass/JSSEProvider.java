@@ -1,7 +1,14 @@
-package com.bipin.trace.javaclass;
+package com.bipin.cellfinder.javaclass;
 
 /**
- * Created by bips on 4/9/16.
+ * Student’s Name: Samir Babu Gharti
+ * Final Year Project
+ * Islington College
+ * LMU ID: 11069886
+ * Supervisor: Mr. Dhruba Sen
+ *
+ * @author Alexander Y. Kleymenov
+ * @version $Revision$
  */
 /*
  *  Licensed to the Apache Software Foundation (ASF) under one or more

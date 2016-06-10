@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.samir.trace">
+    package="com.bipin.cellfinder">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.samir.trace.Splash">
+        <activity android:name="com.bipin.cellfinder.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,20 +25,20 @@
 
         </activity>
         <activity
-            android:name="com.samir.trace.MainPage"
+            android:name="com.bipin.cellfinder.MainPage"
             android:label="@string/title_activity_main_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.samir.trace.AddInfoPage"
+            android:name="com.bipin.cellfinder.AddInfoPage"
             android:label="@string/title_activity_add_info_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.samir.trace.Authenticate"
+            android:name="com.bipin.cellfinder.Authenticate"
             android:label="Authenticate"
             android:theme="@style/AppTheme.NoActionBar" />
-        <service android:name="com.samir.trace.javaclass.MyService"/>
-        <service android:name="com.samir.trace.javaclass.MessageService"/>
-        <receiver android:name="com.samir.trace.BootUpReciever">
+        <service android:name="com.bipin.cellfinder.javaclass.MyService"/>
+        <service android:name="com.bipin.cellfinder.javaclass.MessageService"/>
+        <receiver android:name="com.bipin.cellfinder.BootUpReciever">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -47,7 +47,7 @@
         </receiver>
 
         <activity
-            android:name="com.samir.trace.EmailAuthenticate"
+            android:name="com.bipin.cellfinder.EmailAuthenticate"
             android:label="@string/title_activity_email_authenticate"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>

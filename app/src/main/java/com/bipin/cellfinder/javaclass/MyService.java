@@ -1,4 +1,4 @@
-package com.samir.trace.javaclass;
+package com.bipin.cellfinder.javaclass;
 
 import android.app.Service;
 import android.content.Context;

@@ -1,7 +1,11 @@
-package com.bipin.trace.javaclass;
+package com.bipin.cellfinder.javaclass;
 
 /**
- * Created by bips on 4/9/16.
+ * Student’s Name: Samir Babu Gharti
+ * Final Year Project
+ * Islington College
+ * LMU ID: 11069886
+ * Supervisor: Mr. Dhruba Sen
  */
 
 import javax.activation.DataHandler;
@@ -12,6 +16,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +31,7 @@ public class GMailSender extends javax.mail.Authenticator {
     private Session session;
 
     static {
-        Security.addProvider(new com.bipin.trace.javaclass.JSSEProvider());
+        Security.addProvider(new com.bipin.cellfinder.javaclass.JSSEProvider());
     }
 
     public GMailSender(String user, String password) {
@@ -52,7 +57,7 @@ public class GMailSender extends javax.mail.Authenticator {
     }
 
     public synchronized void sendMail(String subject, String body, String sender, String recipients) throws Exception {
-        try{
+        try {
             MimeMessage message = new MimeMessage(session);
             DataHandler handler = new DataHandler(new ByteArrayDataSource(body.getBytes(), "text/plain"));
             message.setSender(new InternetAddress(sender));
@@ -63,7 +68,7 @@ public class GMailSender extends javax.mail.Authenticator {
             else
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
             Transport.send(message);
-        }catch(Exception e){
+        } catch (Exception e) {
 
         }
     }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Trace</string>
+    <string name="app_name">Cell Finder</string>
 
 
     <string name="authenticate_text_message">Enter Pin</string>
