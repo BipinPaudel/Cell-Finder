@@ -11,13 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-/**
- * Student’s Name: Samir Babu Gharti
- * Final Year Project
- * Islington College
- * LMU ID: 11069886
- * Supervisor: Mr. Dhruba Sen
- */
+
 public class Authenticate extends AppCompatActivity {
     public static final String MyPreferences = "secure";//for shared preferences
     String pinNumber;
@@ -53,6 +47,7 @@ public class Authenticate extends AppCompatActivity {
                     //if true redirected to MainPage
                     if (Integer.parseInt(pinNumber) == Integer.parseInt(givenPin.getText().toString())) {
                         Intent intent = new Intent(Authenticate.this, MainPage.class);
+
                         startActivity(intent);
                         givenPin.setText("");
 

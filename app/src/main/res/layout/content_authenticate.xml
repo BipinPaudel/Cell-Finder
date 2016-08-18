@@ -55,11 +55,6 @@
         android:id="@+id/forgot_pin_button"/>
     </LinearLayout>
 </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Submitted By: Samir Babu Gharti\n          LMU Id:11069886"
-        android:layout_marginTop="100dp"/>
+
 </LinearLayout>
 </ScrollView>

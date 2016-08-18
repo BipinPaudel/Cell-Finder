@@ -135,17 +135,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_info_button_main_page" />
-
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note"
+                android:layout_marginTop="50dp"
+                android:textColor="@android:color/holo_red_dark"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You have to enable 'Allowing less secure apps to access your account' from google account setting to use email feature."
+               android:textStyle="italic"/>
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="150dp"
-            android:layout_weight="1"
-            android:text="Submitted By: Samir Babu Gharti\n          LMU Id:11069886" />
 
     </LinearLayout>
 </ScrollView>

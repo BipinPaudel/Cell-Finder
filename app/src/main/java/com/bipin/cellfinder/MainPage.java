@@ -13,13 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-/**
- * Student’s Name: Samir Babu Gharti
- * Final Year Project
- * Islington College
- * LMU ID: 11069886
- * Supervisor: Mr. Dhruba Sen
- */
+
 public class MainPage extends AppCompatActivity {
 
     Button editButton;

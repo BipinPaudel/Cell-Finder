@@ -16,13 +16,6 @@ import com.bipin.cellfinder.javaclass.MyService;
 //
 
 
-/**
- * Student’s Name: Samir Babu Gharti
- * Final Year Project
- * Islington College
- * LMU ID: 11069886
- * Supervisor: Mr. Dhruba Sen
- */
 
 //this class is called broadcast receiver
 // It listens the action that happens in the background and executes this

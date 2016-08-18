@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bipin.cellfinder">
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SEND_SMS" />
@@ -31,11 +30,17 @@
         <activity
             android:name="com.bipin.cellfinder.AddInfoPage"
             android:label="@string/title_activity_add_info_page"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name="com.bipin.cellfinder.Authenticate"
             android:label="Authenticate"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:noHistory="true"/>
+
+
+
+
         <service android:name="com.bipin.cellfinder.javaclass.MyService"/>
         <service android:name="com.bipin.cellfinder.javaclass.MessageService"/>
         <receiver android:name="com.bipin.cellfinder.BootUpReciever">
@@ -49,7 +54,8 @@
         <activity
             android:name="com.bipin.cellfinder.EmailAuthenticate"
             android:label="@string/title_activity_email_authenticate"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:noHistory="true"/>
     </application>
 
 </manifest>

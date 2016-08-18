@@ -65,14 +65,7 @@
             android:layout_toRightOf="@id/email_authentication_button"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="60dp"
-                android:text="Submitted By: Samir Babu Gharti\n          LMU Id:11069886"
 
-                />
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

@@ -10,13 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-/**
- Student’s Name: Samir Babu Gharti
- Final Year Project
- Islington College
- LMU ID: 11069886
- Supervisor: Mr. Dhruba Sen
- */
 public class EmailAuthenticate extends AppCompatActivity {
 
     EditText enteredEmail;
