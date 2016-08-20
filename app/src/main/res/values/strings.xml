@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Cell Finder</string>
-
+    <string name="shake_toolbar">Shake</string>
 
     <string name="authenticate_text_message">Enter Pin</string>
     <string name="authenticate_button">OK </string>
@@ -11,7 +11,7 @@
     <string name="title_activity_add_info_page">AddInfoPage</string>
     <string name="add_name">Name:</string>
     <string name="add_number">Number to Send message: </string>
-    <string name="add_email">Email to send message</string>
+    <string name="add_email">Email Id to send message</string>
     <string name="okButton">OK</string>
     <string name="title_activity_splash">Splash</string>
     <string name="forgot_pin">Forgot Pin?</string>

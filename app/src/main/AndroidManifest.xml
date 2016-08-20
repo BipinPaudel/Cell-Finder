@@ -1,49 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bipin.cellfinder">
+
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.bipin.cellfinder.Splash">
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
-
         </activity>
         <activity
-            android:name="com.bipin.cellfinder.MainPage"
+            android:name=".MainPage"
             android:label="@string/title_activity_main_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.bipin.cellfinder.AddInfoPage"
+            android:name=".AddInfoPage"
             android:label="@string/title_activity_add_info_page"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.bipin.cellfinder.Authenticate"
+            android:name=".Authenticate"
             android:label="Authenticate"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
 
+        <service android:name=".services.MyService" />
+        <service android:name=".services.MessageService" />
 
-
-
-        <service android:name="com.bipin.cellfinder.javaclass.MyService"/>
-        <service android:name="com.bipin.cellfinder.javaclass.MessageService"/>
-        <receiver android:name="com.bipin.cellfinder.BootUpReciever">
+        <receiver android:name=".receivers.BootUpReciever">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -51,11 +48,14 @@
             </intent-filter>
         </receiver>
 
+
         <activity
-            android:name="com.bipin.cellfinder.EmailAuthenticate"
+            android:name=".EmailAuthenticate"
             android:label="@string/title_activity_email_authenticate"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SensorActivity"
+            android:label="@string/shake_toolbar"></activity>
     </application>
 
 </manifest>

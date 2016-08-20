@@ -41,6 +41,15 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
+        Button shakeButton= (Button) findViewById(R.id.shake_id);
+        shakeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainPage.this,SensorActivity.class);
+                startActivity(intent);
+            }
+        });
+
         sharedPreferences = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
 
         displayInfo();//retrieves stored information from sharedpreferences and displays in this activity

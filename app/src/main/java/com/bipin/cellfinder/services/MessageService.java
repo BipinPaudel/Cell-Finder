@@ -1,4 +1,4 @@
-package com.bipin.cellfinder.javaclass;
+package com.bipin.cellfinder.services;
 
 import android.app.PendingIntent;
 import android.app.Service;
@@ -11,13 +11,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
 import android.util.Log;
 
-/**
- * Student’s Name: Samir Babu Gharti
- * Final Year Project
- * Islington College
- * LMU ID: 11069886
- * Supervisor: Mr. Dhruba Sen
- */
+
 //This class helps in sending sms
 public class MessageService extends Service {
 

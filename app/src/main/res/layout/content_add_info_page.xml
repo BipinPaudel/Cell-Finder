@@ -34,29 +34,34 @@
         style="@style/edittext"
         android:layout_below="@id/id_your_email"
         android:id="@+id/id_edittext_your_email"
+        android:hint="Your google id stored in this device"
         />
     <TextView
         style="@style/textview"
         android:layout_below="@id/id_edittext_your_email"
         android:id="@+id/id_your_email_password"
-        android:text="Password"/>
+        android:text="Password"
+        />
 
     <EditText
         style="@style/edittext"
         android:id="@+id/id_edittext_email_password"
         android:layout_below="@id/id_your_email_password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:hint="Google id password"/>
     <TextView
         style="@style/textview"
         android:layout_below="@id/id_edittext_email_password"
         android:id="@+id/id_add_number"
-        android:text="@string/add_number"/>
+        android:text="@string/add_number"
+        />
 
     <EditText
         style="@style/edittext"
         android:layout_below="@id/id_add_number"
         android:id="@+id/id_edittext_add_number"
-        android:inputType="number"/>
+        android:inputType="number"
+        android:hint="You will get new sim info in this number"/>
     <TextView
         style="@style/textview"
         android:layout_below="@id/id_edittext_add_number"
@@ -67,7 +72,8 @@
         style="@style/edittext"
         android:layout_below="@id/id_add_email"
         android:id="@+id/id_edittext_add_email"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:hint="You will get new sim info in this email id"/>
 
     <TextView
         style="@style/textview"
@@ -79,6 +85,8 @@
         android:layout_below="@id/id_add_pin"
         android:id="@+id/id_edittext_add_pin"
         android:inputType="number"
+        android:hint="Password to open this application"
+
         />
     <Button
         android:layout_width="wrap_content"

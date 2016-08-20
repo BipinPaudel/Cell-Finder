@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.bipin.cellfinder.SensorActivity">
+
+    <TextView
+        android:id="@+id/shake_text_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Leave this open and keep your device at rest. Whenever there is a movement in your device, notification sound will pop up even when the device is locked."
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20dp" />
+</RelativeLayout>

@@ -1,4 +1,4 @@
-package com.bipin.cellfinder;
+package com.bipin.cellfinder.receivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.bipin.cellfinder.javaclass.MessageService;
-import com.bipin.cellfinder.javaclass.MyService;
+import com.bipin.cellfinder.services.MessageService;
+import com.bipin.cellfinder.services.MyService;
 
 //
 
@@ -20,6 +20,7 @@ import com.bipin.cellfinder.javaclass.MyService;
 //this class is called broadcast receiver
 // It listens the action that happens in the background and executes this
 //We call message and email service from this broadcastreceiver
+
 public class BootUpReciever extends BroadcastReceiver {
 
 
@@ -35,26 +36,25 @@ public class BootUpReciever extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        sharedPreferences = context.getSharedPreferences(MyPreferences, 0);
+        String storedSimSerial = sharedPreferences.getString("simSerial", null);
+        String phoneNumbertoSend = sharedPreferences.getString("number", null);
+        email = sharedPreferences.getString("email", null);
+
+        if (email == null) return;
 
         ConnectivityManager connectivityManager = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
 
-        sharedPreferences = context.getSharedPreferences(MyPreferences, 0);
-        String storedSimSerial = sharedPreferences.getString("simSerial", null);
-        String phoneNumbertoSend = sharedPreferences.getString("number", null);
+
 
 
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         currentSimSerial = tm.getSimSerialNumber();
 
-        email = sharedPreferences.getString("email", null);
 
-        if (email == null) return;
-        Log.d("Stored Sim Serial::", storedSimSerial);
-        Log.d("Current Sim Serial", "::" + currentSimSerial);
-        Log.d("goose", "goose");
         //this checks if there is sim card or not.
         // if there is no sim card function will return
         if (tm.getSimSerialNumber() == null) return;

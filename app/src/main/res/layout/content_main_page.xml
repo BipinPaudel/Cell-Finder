@@ -139,13 +139,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Note"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:textColor="@android:color/holo_red_dark"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="You have to enable 'Allowing less secure apps to access your account' from google account setting to use email feature."
                android:textStyle="italic"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_add_info_button"
+                android:text="shake"
+                android:id="@+id/shake_id"/>
         </LinearLayout>
 
 

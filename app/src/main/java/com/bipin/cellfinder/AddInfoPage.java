@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bipin.cellfinder.dialogs.EnableSmsDialog;
+import com.bipin.cellfinder.utils.PermissionUtil;
 
 public class AddInfoPage extends AppCompatActivity {
 
@@ -59,14 +60,14 @@ public class AddInfoPage extends AppCompatActivity {
             requestSendSmsPermission();
         }
 
-//        if(ActivityCompat.checkSelfPermission(AddInfoPage.this,Manifest.permission.ACCESS_FINE_LOCATION)
-//                != PackageManager.PERMISSION_GRANTED){
-//            requestLocationPermission();
-//        }
-
         sharedPreferences = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
+
+
         Intent intent = getIntent();
         addOrEditValue = intent.getIntExtra("editValue", 0);
+
+
+
 
         if (addOrEditValue == 0) {
             addInfo();
@@ -180,66 +181,69 @@ public class AddInfoPage extends AppCompatActivity {
     public void addInfo() {
 
         addButton = (Button) findViewById(R.id.id_add_info_button);
-        //this code executed after add Button is clicked.
-        //information are retrieved from edittext from user and stored in sharedpreferences
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (everyPermissionGranted() == false) {
-                    //Toast.makeText(AddInfoPage.this, "Location or SMS permission has not been granted", Toast.LENGTH_SHORT).show();
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            EnableSmsDialog smsDialog = new EnableSmsDialog();
-                            smsDialog.show(getSupportFragmentManager(), "sms dialog");
 
-                        }
-                    });
-                } else {
-                    String nameText = enteredName.getText().toString();
-                    String sendingEmailText = sendingEmail.getText().toString();
-                    String emailPasswordText = emailPassword.getText().toString();
-                    String numberText = enteredNumber.getText().toString();
-                    String receivingEmailText = receivingEmail.getText().toString();
-                    String pinText = enteredPin.getText().toString();
+            //this code executed after add Button is clicked.
+            //information are retrieved from edittext from user and stored in sharedpreferences
+            addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (simSerialNumber == null) {
+                        Toast.makeText(AddInfoPage.this, "Sim info cannot be retrieved", Toast.LENGTH_SHORT).show();
+                    } else if (everyPermissionGranted() == false) {
+                        //Toast.makeText(AddInfoPage.this, "Location or SMS permission has not been granted", Toast.LENGTH_SHORT).show();
+                        new Handler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                EnableSmsDialog smsDialog = new EnableSmsDialog();
+                                smsDialog.show(getSupportFragmentManager(), "sms dialog");
 
-
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    //no any edittext should be empty
-                    if (nameText.isEmpty() && sendingEmailText.isEmpty() && emailPasswordText.isEmpty() && numberText.isEmpty()
-                            && receivingEmailText.isEmpty() && pinText.isEmpty()) {//
-                        Toast.makeText(AddInfoPage.this, "Enter all data", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     } else {
-                        if (pinText.length() != 4) {//pin should be only of 4 length
-                            Toast.makeText(AddInfoPage.this, "Pin number has to be of length 4", Toast.LENGTH_SHORT).show();
-                        } else if (validateEmail(sendingEmailText, receivingEmailText) == false) {//email should be valid
-                            Toast.makeText(AddInfoPage.this, "Enter valid email", Toast.LENGTH_SHORT).show();
-                        } else {//if everythings ok this will execute
-                            //user entered information is stored as key value pair in sharedpreferences.
-                            editor.putString("name", nameText);
-                            editor.putString("sendingEmail", sendingEmailText);
-                            editor.putString("emailPassword", emailPasswordText);
-                            editor.putString("number", numberText);
-                            editor.putString("email", receivingEmailText);
-                            editor.putString("pin", pinText);
-                            editor.putString("simSerial", simSerialNumber);
-                            editor.commit();
-                            Toast.makeText(AddInfoPage.this, "Added info", Toast.LENGTH_SHORT).show();
+                        String nameText = enteredName.getText().toString();
+                        String sendingEmailText = sendingEmail.getText().toString();
+                        String emailPasswordText = emailPassword.getText().toString();
+                        String numberText = enteredNumber.getText().toString();
+                        String receivingEmailText = receivingEmail.getText().toString();
+                        String pinText = enteredPin.getText().toString();
 
-                            enteredName.setText("");
-                            sendingEmail.setText("");
-                            emailPassword.setText("");
-                            enteredNumber.setText("");
-                            receivingEmail.setText("");
-                            enteredPin.setText("");
-                            Intent intent = new Intent(AddInfoPage.this, MainPage.class);
-                            startActivity(intent);
-                            finish();
+
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        //no any edittext should be empty
+                        if (nameText.isEmpty() && sendingEmailText.isEmpty() && emailPasswordText.isEmpty() && numberText.isEmpty()
+                                && receivingEmailText.isEmpty() && pinText.isEmpty()) {//
+                            Toast.makeText(AddInfoPage.this, "Enter all data", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (pinText.length() != 4) {//pin should be only of 4 length
+                                Toast.makeText(AddInfoPage.this, "Pin number has to be of length 4", Toast.LENGTH_SHORT).show();
+                            } else if (validateEmail(sendingEmailText, receivingEmailText) == false) {//email should be valid
+                                Toast.makeText(AddInfoPage.this, "Enter valid email", Toast.LENGTH_SHORT).show();
+                            } else {//if everythings ok this will execute
+                                //user entered information is stored as key value pair in sharedpreferences.
+                                editor.putString("name", nameText);
+                                editor.putString("sendingEmail", sendingEmailText);
+                                editor.putString("emailPassword", emailPasswordText);
+                                editor.putString("number", numberText);
+                                editor.putString("email", receivingEmailText);
+                                editor.putString("pin", pinText);
+                                editor.putString("simSerial", simSerialNumber);
+                                editor.commit();
+                                Toast.makeText(AddInfoPage.this, "Added info", Toast.LENGTH_SHORT).show();
+
+                                enteredName.setText("");
+                                sendingEmail.setText("");
+                                emailPassword.setText("");
+                                enteredNumber.setText("");
+                                receivingEmail.setText("");
+                                enteredPin.setText("");
+                                Intent intent = new Intent(AddInfoPage.this, MainPage.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
                     }
                 }
-            }
-        });
+            });
 
 
     }
@@ -263,7 +267,9 @@ public class AddInfoPage extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (everyPermissionGranted() == false) {
+                if (simSerialNumber == null) {
+                    Toast.makeText(AddInfoPage.this, "Sim info cannot be retrieved", Toast.LENGTH_SHORT).show();
+                } else if (everyPermissionGranted() == false) {
 //                    Toast.makeText(AddInfoPage.this, "Location or SMS permission has not been granted", Toast.LENGTH_SHORT).show();
                     new Handler().post(new Runnable() {
                         @Override
@@ -300,6 +306,7 @@ public class AddInfoPage extends AppCompatActivity {
                             editor.putString("number", numberText);
                             editor.putString("email", receivingEmailText);
                             editor.putString("pin", pinText);
+                            editor.putString("simSerial",simSerialNumber);
                             editor.commit();
                             Toast.makeText(AddInfoPage.this, "Information Added", Toast.LENGTH_SHORT).show();
 
@@ -311,6 +318,7 @@ public class AddInfoPage extends AppCompatActivity {
                             enteredPin.setText("");
                             Intent intent = new Intent(AddInfoPage.this, MainPage.class);
                             startActivity(intent);
+                            finish();
                         }
                     }
                 }

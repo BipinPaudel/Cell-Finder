@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.bipin.cellfinder;
+package com.bipin.cellfinder.utils;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

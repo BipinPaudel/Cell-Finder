@@ -1,4 +1,4 @@
-package com.bipin.cellfinder.javaclass;
+package com.bipin.cellfinder.services;
 
 import android.app.Service;
 import android.content.Context;
@@ -11,14 +11,8 @@ import android.support.annotation.Nullable;
 import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
 
+import com.bipin.cellfinder.javaclass.GMailSender;
 
-/**
- * Student’s Name: Samir Babu Gharti
- * Final Year Project
- * Islington College
- * LMU ID: 11069886
- * Supervisor: Mr. Dhruba Sen
- */
 
 /*
 Cell-ID
